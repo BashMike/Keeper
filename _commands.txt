@@ -1,0 +1,27 @@
+## Main commands
+help															## get list of all commands
+help <command_name>												## get info about command by its name
+
+update															## update values in data base
+
+quit															## quit from the program
+
+## Level commands
+create level <level_name>										## create level with name
+remove level <level_name>										## remove level with name (also all its contents)
+
+getall levels
+
+set level <level_name> PARAM <PARAM_value> ::					## set parameter's value of level
+PARAM = { name : String }
+
+## Room comands
+create room <roomtype_name> <level_name> 						## create room 
+delete room <roomtype_name> <level_name>						## delete room
+
+getall rooms in level <level_name>								## get all rooms in level
+getall roomtypes												## get all roomtypes
+
+set room <roomtype_name> <level_name>
+
+connect room <first_roomtype_name> <first_level_name> to <second_roomtype_name> <second_level_name>			## 
