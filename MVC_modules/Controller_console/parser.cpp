@@ -4,7 +4,7 @@
 
 #include "../../CommandPattern_components/command_quit.hpp"
 
-controller::Parser::Parser(Controller_console* controller_console, Model* model, View* view) {
+controller::Parser::Parser(Controller_console* controller_console, Model* model, view::View* view) {
 	this->_controller_console 	= controller_console;
 	this->_model 				= model;
 	this->_view 				= view;

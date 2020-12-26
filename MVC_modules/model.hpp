@@ -6,6 +6,7 @@ class Model {
 public:
 	// ----------- creating ------------
 	Model();
+	~Model();
 
 	// ----------- contract ------------
 };

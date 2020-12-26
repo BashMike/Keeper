@@ -1,5 +1,7 @@
 #include "view.hpp"
 
-View::View(Model* model) {
+view::View::View(Model* model) {
 	this->_model = model;
 }
+
+view::View::~View() {}

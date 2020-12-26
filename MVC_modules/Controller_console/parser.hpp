@@ -12,7 +12,7 @@ namespace controller {
 		// ============== ATTRIBUTES ==============
 		controller::Controller_console*		_controller_console;
 		Model* 								_model;
-		View* 								_view;
+		view::View* 						_view;
 
 		// ============== OPERATIONS ==============
 		std::vector<std::string> split_command_str(const std::string& command_str) const;
@@ -20,7 +20,7 @@ namespace controller {
 
 	public:
 		// ----------- creating ------------
-		Parser(controller::Controller_console* controller_console, Model* model, View* view);
+		Parser(controller::Controller_console* controller_console, Model* model, view::View* view);
 
 		// ----------- contract ------------
 		commander::Command* parse(const std::string& command_str) const;
