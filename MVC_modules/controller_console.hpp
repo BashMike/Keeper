@@ -10,7 +10,7 @@ namespace controller {
 		// ============== OPERATIONS ==============
 	public:
 		// ----------- creating ------------
-		Controller_console(Model* model, view::View* view, Database_connector* database_connector);
+		Controller_console(model::Model* model, view::View* view, Database_connector* database_connector);
 		~Controller_console();
 
 		// ----------- contract ------------

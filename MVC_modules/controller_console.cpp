@@ -4,7 +4,7 @@
 
 #include "../additional.hpp"
 
-controller::Controller_console::Controller_console(Model* model, view::View* view, Database_connector* database_connector)
+controller::Controller_console::Controller_console(model::Model* model, view::View* view, Database_connector* database_connector)
 	: Controller(model, view, database_connector),
 		_parser(this, model, view)
 {}

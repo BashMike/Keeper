@@ -1,5 +1,6 @@
 #pragma once
 #include <libpq-fe.h>
+#include <vector>
 #include <string>
 
 class Database_connector {
@@ -16,5 +17,5 @@ public:
 	bool connect(const std::string& user_name, const std::string& user_password);
 	void disconnect();
 
-	int getNPChealth();
+	const PGconn* connection() const;
 };

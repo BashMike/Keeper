@@ -3,11 +3,19 @@
 
 #include <iostream>
 
-view::View_console::View_console(Model* model) : View(model) {} 
+view::View_console::View_console(model::Model* model) : View(model) {} 
 view::View_console::~View_console() {}
 
 void view::View_console::print_title() {
 	std::cout << file_content("Keeper_title.txt");
+}
+
+void view::View_console::output_text(const std::vector<std::string>& text) {
+	int index = 1;
+	for (const std::string& line : text) {
+		std::printf("%6i: %s\n", index, line.c_str());
+		index++;
+	}
 }
 
 void view::View_console::output_message(const view::Message_code& message_code) {

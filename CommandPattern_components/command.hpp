@@ -6,6 +6,7 @@ namespace commander {
 	public:
 		// ----------- creating ------------
 		Command();
+		virtual ~Command();
 
 		// ----------- contract ------------
 		virtual void execute() = 0;

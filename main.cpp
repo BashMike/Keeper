@@ -1,8 +1,9 @@
+#include "MVC_modules/app.hpp"
 #include <iostream>
-#include "additional.hpp"
 
 int main() {
-	std::cout << file_content("Keeper_title.txt");
+	App app;
+	app.run();
 
 	return 0;
 }

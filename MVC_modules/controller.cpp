@@ -1,6 +1,6 @@
 #include "controller.hpp"
 
-controller::Controller::Controller(Model* model, view::View* view, Database_connector* database_connector) {
+controller::Controller::Controller(model::Model* model, view::View* view, Database_connector* database_connector) {
 	this->_is_running	= true;
 
 	this->_model				= model;

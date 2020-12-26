@@ -11,9 +11,9 @@ App::App() {
 	this->_minor_version = 0;
 	this->_child_version = 0;
 
-	this->_model				= new Model();
-	this->_view					= new view::View_console(this->_model);
 	this->_database_connector	= new Database_connector();
+	this->_model				= new model::Model(this->_database_connector);
+	this->_view					= new view::View_console(this->_model);
 	this->_controller 			= new controller::Controller_console(this->_model, this->_view, this->_database_connector);
 }
 

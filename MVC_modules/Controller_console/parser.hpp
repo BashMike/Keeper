@@ -11,7 +11,7 @@ namespace controller {
 	class Parser {
 		// ============== ATTRIBUTES ==============
 		controller::Controller_console*		_controller_console;
-		Model* 								_model;
+		model::Model* 						_model;
 		view::View* 						_view;
 
 		// ============== OPERATIONS ==============
@@ -20,7 +20,7 @@ namespace controller {
 
 	public:
 		// ----------- creating ------------
-		Parser(controller::Controller_console* controller_console, Model* model, view::View* view);
+		Parser(controller::Controller_console* controller_console, model::Model* model, view::View* view);
 
 		// ----------- contract ------------
 		commander::Command* parse(const std::string& command_str) const;

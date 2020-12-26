@@ -12,7 +12,7 @@ namespace controller {
 
 		std::string 			_user_name;
 
-		Model*					_model;
+		model::Model*			_model;
 		view::View*				_view;
 		Database_connector*		_database_connector;
 
@@ -21,7 +21,7 @@ namespace controller {
 
 		// ============== OPERATIONS ==============
 		// ----------- creating ------------
-		Controller(Model* model, view::View* view, Database_connector* database_connector);
+		Controller(model::Model* model, view::View* view, Database_connector* database_connector);
 		virtual ~Controller();
 
 		// ----------- contract ------------

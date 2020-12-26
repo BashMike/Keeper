@@ -12,7 +12,7 @@ class App {
 	int	_minor_version;
 	int	_child_version;
 
-	Model* 						_model;
+	model::Model* 				_model;
 	view::View*					_view;
 	controller::Controller* 	_controller;
 	Database_connector*			_database_connector;

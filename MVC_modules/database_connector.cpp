@@ -22,8 +22,4 @@ void Database_connector::disconnect() {
 	PQfinish(this->_connection);
 }
 
-int Database_connector::getNPChealth() {
-	int result = -1;
-
-	return result;
-}
+const PGconn* Database_connector::connection() const { return this->_connection; }
