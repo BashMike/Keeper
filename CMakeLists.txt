@@ -23,7 +23,17 @@ add_executable(keeper
 
 					CommandPattern_components/command.cpp
 					CommandPattern_components/command_quit.cpp
+
+					CommandPattern_components/Command_show/command_show_levels.cpp
+					CommandPattern_components/Command_show/command_show_rooms.cpp
+					CommandPattern_components/Command_show/command_show_roomtypes.cpp
+					CommandPattern_components/Command_show/command_show_walls.cpp
+					CommandPattern_components/Command_show/command_show_npcs.cpp
 					CommandPattern_components/Command_show/command_show_npctypes.cpp
+					CommandPattern_components/Command_show/command_show_items.cpp
+					CommandPattern_components/Command_show/command_show_itemtypes.cpp
+					CommandPattern_components/Command_show/command_show_buffs.cpp
+					CommandPattern_components/Command_show/command_show_bufftypes.cpp
 				)
 
 find_package(PostgreSQL REQUIRED)

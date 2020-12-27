@@ -15,6 +15,21 @@ namespace model {
 		Info_module(Database_connector* database_connector);
 
 		// ----------- contract ------------
-		std::vector<std::string> get_npctypes_info() const;
+	private:
+		std::vector<std::vector<std::string>> _select(const std::string& script_str) const;
+
+	public:
+		std::vector<std::vector<std::string>> get_levels_info() const;
+		std::vector<std::vector<std::string>> get_rooms_info() const;
+		std::vector<std::vector<std::string>> get_roomtypes_info() const;
+		std::vector<std::vector<std::string>> get_walls_info() const;
+
+		std::vector<std::vector<std::string>> get_NPCs_info() const;
+		std::vector<std::vector<std::string>> get_npctypes_info() const;
+		std::vector<std::vector<std::string>> get_items_info() const;
+		std::vector<std::vector<std::string>> get_itemtypes_info() const;
+
+		std::vector<std::vector<std::string>> get_buffs_info() const;
+		std::vector<std::vector<std::string>> get_bufftypes_info() const;
 	};
 }
