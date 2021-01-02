@@ -7,5 +7,5 @@ commander::Command_show_itemtypes::Command_show_itemtypes(model::Model* model, v
 
 void commander::Command_show_itemtypes::execute() {
 	std::vector<std::vector<std::string>> itemtypes_info = this->_model->info_module()->get_itemtypes_info();
-	this->_view->output_id_and_name_objects(itemtypes_info);
+	this->_view->output_object_types(itemtypes_info);
 }

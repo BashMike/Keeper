@@ -1,4 +1,7 @@
 #pragma once
+#include <vector>
+#include <string>
+
 #include "model.hpp"
 #include "view.hpp"
 #include "database_connector.hpp"
@@ -29,6 +32,18 @@ namespace controller {
 		virtual void quit() = 0;
 
 		virtual bool connect_to_database(std::string& user_name) const = 0;
+
+		virtual std::vector<std::string> read_level_data() const 		= 0;
+		virtual std::vector<std::string> read_room_data() const 		= 0;
+		virtual std::vector<std::string> read_rooms_data() const 		= 0;
+		virtual std::vector<std::string> read_roomtype_data() const 	= 0;
+		virtual std::vector<std::string> read_wall_data() const 		= 0;
+		virtual std::vector<std::string> read_npc_data() const 			= 0;
+		virtual std::vector<std::string> read_npctype_data() const 		= 0;
+		virtual std::vector<std::string> read_item_data() const 		= 0;
+		virtual std::vector<std::string> read_itemtype_data() const 	= 0;
+		virtual std::vector<std::string> read_buff_data() const 		= 0;
+		virtual std::vector<std::string> read_bufftype_data() const 	= 0;
 
 		// ---------- additional -----------
 		void set_user_name(const std::string& user_name);

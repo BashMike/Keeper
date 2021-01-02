@@ -13,6 +13,7 @@ add_executable(keeper
 
 					MVC_modules/model.cpp
 					MVC_modules/Model_modules/info_module.cpp
+					MVC_modules/Model_modules/transaction_module.cpp
 
 					MVC_modules/view.cpp
 					MVC_modules/view_console.cpp
@@ -34,6 +35,19 @@ add_executable(keeper
 					CommandPattern_components/Command_show/command_show_itemtypes.cpp
 					CommandPattern_components/Command_show/command_show_buffs.cpp
 					CommandPattern_components/Command_show/command_show_bufftypes.cpp
+
+					CommandPattern_components/Command_create/command_create_level.cpp
+					CommandPattern_components/Command_create/command_create_room.cpp
+					CommandPattern_components/Command_create/command_create_roomtype.cpp
+					CommandPattern_components/Command_create/command_create_wall.cpp
+					CommandPattern_components/Command_create/command_create_npc.cpp
+					CommandPattern_components/Command_create/command_create_npctype.cpp
+					CommandPattern_components/Command_create/command_create_item.cpp
+					CommandPattern_components/Command_create/command_create_itemtype.cpp
+					CommandPattern_components/Command_create/command_create_buff.cpp
+					CommandPattern_components/Command_create/command_create_bufftype.cpp
+
+					CommandPattern_components/Command_create/command_connect_rooms.cpp
 				)
 
 find_package(PostgreSQL REQUIRED)

@@ -7,5 +7,5 @@ commander::Command_show_bufftypes::Command_show_bufftypes(model::Model* model, v
 
 void commander::Command_show_bufftypes::execute() {
 	std::vector<std::vector<std::string>> bufftypes_info = this->_model->info_module()->get_bufftypes_info();
-	this->_view->output_id_and_name_objects(bufftypes_info);
+	this->_view->output_object_types(bufftypes_info);
 }

@@ -18,5 +18,17 @@ namespace controller {
 		virtual void quit() override;
 
 		virtual bool connect_to_database(std::string& user_name) const override;
+
+		virtual std::vector<std::string> read_level_data() const 		override;
+		virtual std::vector<std::string> read_room_data() const 		override;
+		virtual std::vector<std::string> read_rooms_data() const 		override;
+		virtual std::vector<std::string> read_roomtype_data() const 	override;
+		virtual std::vector<std::string> read_wall_data() const 		override;
+		virtual std::vector<std::string> read_npc_data() const 			override;
+		virtual std::vector<std::string> read_npctype_data() const 		override;
+		virtual std::vector<std::string> read_item_data() const 		override;
+		virtual std::vector<std::string> read_itemtype_data() const 	override;
+		virtual std::vector<std::string> read_buff_data() const 		override;
+		virtual std::vector<std::string> read_bufftype_data() const 	override;
 	};
 }

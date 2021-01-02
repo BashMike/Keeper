@@ -1,6 +1,7 @@
-#include <fstream>
 #include "additional.hpp"
 
+#include <regex>
+#include <fstream>
 #ifdef WIN32
 	#include <windows.h>
 #else
@@ -36,4 +37,12 @@ void set_stdin_echo(bool enable) {
 
     tcsetattr(STDIN_FILENO, TCSANOW, &tty);
 #endif
+}
+
+bool is_integer(const std::string& str) {
+	return std::regex_match(str.begin(), str.end(), std::regex("(\\+|\\-)?\\d+"));
+}
+
+bool is_float(const std::string& str) {
+	return std::regex_match(str.begin(), str.end(), std::regex("(\\+|\\-)?((\\d*.\\d+)|(\\d+.\\d*))"));
 }

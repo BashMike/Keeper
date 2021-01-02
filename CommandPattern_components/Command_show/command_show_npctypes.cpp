@@ -7,5 +7,5 @@ commander::Command_show_npctypes::Command_show_npctypes(model::Model* model, vie
 
 void commander::Command_show_npctypes::execute() {
 	std::vector<std::vector<std::string>> npctypes_info = this->_model->info_module()->get_npctypes_info();
-	this->_view->output_id_and_name_objects(npctypes_info);
+	this->_view->output_object_types(npctypes_info);
 }

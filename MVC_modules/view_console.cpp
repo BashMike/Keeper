@@ -23,12 +23,28 @@ void view::View_console::output_message(const view::Message_code& message_code) 
 	else if (message_code == view::ERR_DB_CONNECTION) {
 		std::cout << "ERROR: failed to connect to the database." << std::endl;
 	}
+	else if (message_code == view::ERR_DB_INSERT) {
+		std::cout << "ERROR: failed to insert data to the database table." << std::endl;
+	}
+	else if (message_code == view::ERR_INVALID_ARGUMENT) {
+		std::cout << "ERROR: invalid argument." << std::endl;
+	}
 }
 
-void view::View_console::output_id_and_name_objects(const std::vector<std::vector<std::string>>& object_types) {
+void view::View_console::output_object_types(const std::vector<std::vector<std::string>>& object_types) {
 	int index = 1;
 	for (const auto& object_type : object_types) {
 		std::printf("%6i: (id: %4s) - name = %s\n", index, object_type.at(0).c_str(), object_type.at(1).c_str());
+		index++;
+	}
+
+	std::cout << std::endl;
+}
+
+void view::View_console::output_levels_info(const std::vector<std::vector<std::string>>& levels_info) {
+	int index = 1;
+	for (const auto& level_info : levels_info) {
+		std::printf("%6i: (id: %4s) - name = %15s, music\'s file path: %s\n", index, level_info.at(0).c_str(), level_info.at(1).c_str(), level_info.at(2).c_str());
 		index++;
 	}
 
@@ -108,6 +124,8 @@ void view::View_console::output_NPCs_info(const std::vector<std::vector<std::str
 
 		index++;
 	}
+
+	std::cout << std::endl;
 }
 
 void view::View_console::output_items_info(const std::vector<std::vector<std::string>>& items_info)	{
@@ -138,7 +156,7 @@ void view::View_console::output_items_info(const std::vector<std::vector<std::st
 void view::View_console::output_buffs_info(const std::vector<std::vector<std::string>>& buffs_info)	{
 	int index = 1;
 	for (const auto& buff_info : buffs_info) {
-		std::printf("%6i: (id: %4s) - buff\' type = %20s, effect time = %s,\n", index, 
+		std::printf("%6i: (id: %4s) - buff\'s type = %20s, effect time = %s\n", index, 
 					buff_info.at(0).c_str(),
 					buff_info.at(1).c_str(),
 					buff_info.at(2).c_str());
