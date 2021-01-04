@@ -12,6 +12,7 @@ namespace view {
 		// ----------- contract ------------
 		virtual void print_title() override;
 
+		virtual void output_message_str(const std::string& message_str) 	override;	
 		virtual void output_message(const view::Message_code& message_code) override;
 
 		virtual void output_object_types(const std::vector<std::vector<std::string>>& object_types)		override;

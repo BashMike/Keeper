@@ -80,33 +80,6 @@ std::vector<std::string> controller::Controller_console::read_room_data() const 
 	return result;
 }
 
-std::vector<std::string> controller::Controller_console::read_rooms_data() const {
-	std::vector<std::string> result;
-
-	std::string firstroom_id;
-	std::cout << "    type first room\'s id: ";
-	std::getline(std::cin, firstroom_id);
-	if (!is_integer(firstroom_id)) { return std::vector<std::string>(); }
-
-	std::string secondroom_id;
-	std::cout << "    type second room\'s id: ";
-	std::getline(std::cin, secondroom_id);
-	if (!is_integer(secondroom_id)) { return std::vector<std::string>(); }
-
-	if (firstroom_id > secondroom_id) {
-		std::string buffer;
-
-		buffer = firstroom_id;
-		firstroom_id = secondroom_id;
-		secondroom_id = buffer;
-	}
-
-	result.push_back(firstroom_id);
-	result.push_back(secondroom_id);
-
-	return result;
-}
-
 std::vector<std::string> controller::Controller_console::read_roomtype_data() const {
 	std::vector<std::string> result;
 
@@ -323,6 +296,163 @@ std::vector<std::string> controller::Controller_console::read_bufftype_data() co
 	std::getline(std::cin, bufftype_name);
 
 	result.push_back(bufftype_name);
+
+	return result;
+}
+
+std::vector<std::string> controller::Controller_console::read_rooms_data() const {
+	std::vector<std::string> result;
+
+	std::string firstroom_id;
+	std::cout << "    type first room\'s id: ";
+	std::getline(std::cin, firstroom_id);
+	if (!is_integer(firstroom_id)) { return std::vector<std::string>(); }
+
+	std::string secondroom_id;
+	std::cout << "    type second room\'s id: ";
+	std::getline(std::cin, secondroom_id);
+	if (!is_integer(secondroom_id)) { return std::vector<std::string>(); }
+
+	if (firstroom_id > secondroom_id) {
+		std::string buffer;
+
+		buffer = firstroom_id;
+		firstroom_id = secondroom_id;
+		secondroom_id = buffer;
+	}
+
+	result.push_back(firstroom_id);
+	result.push_back(secondroom_id);
+
+	return result;
+}
+
+std::vector<std::string> controller::Controller_console::read_level_define_data() const {
+	std::vector<std::string> result;
+
+	std::string level_id;
+	std::cout << "    type level\'s id: ";
+	std::getline(std::cin, level_id);
+	if (!is_integer(level_id)) { return std::vector<std::string>(); }
+
+	result.push_back(level_id);
+
+	return result;
+}
+
+std::vector<std::string> controller::Controller_console::read_room_define_data() const {
+	std::vector<std::string> result;
+
+	std::string room_id;
+	std::cout << "    type room\'s id: ";
+	std::getline(std::cin, room_id);
+	if (!is_integer(room_id)) { return std::vector<std::string>(); }
+
+	result.push_back(room_id);
+
+	return result;
+}
+
+std::vector<std::string> controller::Controller_console::read_roomtype_define_data() const {
+	std::vector<std::string> result;
+
+	std::string roomtype_id;
+	std::cout << "    type roomtype\'s id: ";
+	std::getline(std::cin, roomtype_id);
+	if (!is_integer(roomtype_id)) { return std::vector<std::string>(); }
+
+	result.push_back(roomtype_id);
+
+	return result;
+}
+
+std::vector<std::string> controller::Controller_console::read_wall_define_data() const {
+	std::vector<std::string> result;
+
+	std::string gameobject_id;
+	std::cout << "    type wall\'s id: ";
+	std::getline(std::cin, gameobject_id);
+	if (!is_integer(gameobject_id)) { return std::vector<std::string>(); }
+
+	result.push_back(gameobject_id);
+
+	return result;
+}
+
+std::vector<std::string> controller::Controller_console::read_npc_define_data() const {
+	std::vector<std::string> result;
+
+	std::string gameobject_id;
+	std::cout << "    type npc\'s id: ";
+	std::getline(std::cin, gameobject_id);
+	if (!is_integer(gameobject_id)) { return std::vector<std::string>(); }
+
+	result.push_back(gameobject_id);
+
+	return result;
+}
+
+std::vector<std::string> controller::Controller_console::read_npctype_define_data() const {
+	std::vector<std::string> result;
+
+	std::string gameobject_id;
+	std::cout << "    type npc type\'s id: ";
+	std::getline(std::cin, gameobject_id);
+	if (!is_integer(gameobject_id)) { return std::vector<std::string>(); }
+
+	result.push_back(gameobject_id);
+
+	return result;
+}
+
+std::vector<std::string> controller::Controller_console::read_item_define_data() const {
+	std::vector<std::string> result;
+
+	std::string gameobject_id;
+	std::cout << "    type item\'s id: ";
+	std::getline(std::cin, gameobject_id);
+	if (!is_integer(gameobject_id)) { return std::vector<std::string>(); }
+
+	result.push_back(gameobject_id);
+
+	return result;
+}
+
+std::vector<std::string> controller::Controller_console::read_itemtype_define_data() const {
+	std::vector<std::string> result;
+
+	std::string gameobject_id;
+	std::cout << "    type item type\'s id: ";
+	std::getline(std::cin, gameobject_id);
+	if (!is_integer(gameobject_id)) { return std::vector<std::string>(); }
+
+	result.push_back(gameobject_id);
+
+	return result;
+}
+
+std::vector<std::string> controller::Controller_console::read_buff_define_data() const {
+	std::vector<std::string> result;
+
+	std::string buff_id;
+	std::cout << "    type buff\'s id: ";
+	std::getline(std::cin, buff_id);
+	if (!is_integer(buff_id)) { return std::vector<std::string>(); }
+
+	result.push_back(buff_id);
+
+	return result;
+}
+
+std::vector<std::string> controller::Controller_console::read_bufftype_define_data() const {
+	std::vector<std::string> result;
+
+	std::string bufftype_id;
+	std::cout << "    type buff type\'s id: ";
+	std::getline(std::cin, bufftype_id);
+	if (!is_integer(bufftype_id)) { return std::vector<std::string>(); }
+
+	result.push_back(bufftype_id);
 
 	return result;
 }

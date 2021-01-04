@@ -10,11 +10,10 @@ void commander::Command_create_itemtype::execute() {
 	std::vector<std::string> itemtype_data = this->_controller->read_itemtype_data();
 
 	if (!itemtype_data.empty()) {
-		view::Message_code result_message = this->_model->transaction_module()->create_itemtype(itemtype_data);
+		std::string result_message = this->_model->transaction_module()->create_itemtype(itemtype_data);
 
-		if (result_message != view::NO_MESSAGE) {
-			this->_view->output_message(result_message);
-		}
+		if (result_message == "") 	{ this->_view->output_message(view::MSG_QUERY_SUCCESS); }
+		else 						{ this->_view->output_message_str(result_message); }
 	}
 	else {
 		this->_view->output_message(view::ERR_INVALID_ARGUMENT);

@@ -7,6 +7,7 @@ namespace view {
 		MSG_HELLO,								// message when entering the program
 		MSG_EXIT,								// message when exiting from the program
 		MSG_DB_ACCESS,							// message when accessing the database
+		MSG_QUERY_SUCCESS,						// message when successing the query executing
 
 		ERR_DB_CONNECTION,						// error in database connection
 		ERR_DB_INSERT,							// error in database insert command 

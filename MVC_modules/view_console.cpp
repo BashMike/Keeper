@@ -10,6 +10,10 @@ void view::View_console::print_title() {
 	std::cout << file_content("Keeper_title.txt");
 }
 
+void view::View_console::output_message_str(const std::string& message_str) {
+	std::cout << message_str << std::endl;
+}
+
 void view::View_console::output_message(const view::Message_code& message_code) {
 	if (message_code == view::MSG_HELLO) {
 		std::cout << "Hello!" << std::endl;
@@ -19,6 +23,9 @@ void view::View_console::output_message(const view::Message_code& message_code) 
 	}
 	else if (message_code == view::MSG_DB_ACCESS) {
 		std::cout << "You\'re in \"Dungeon\" database." << std::endl;
+	}
+	else if (message_code == view::MSG_QUERY_SUCCESS) {
+		std::cout << "QUERY SUCCESS." << std::endl;
 	}
 	else if (message_code == view::ERR_DB_CONNECTION) {
 		std::cout << "ERROR: failed to connect to the database." << std::endl;

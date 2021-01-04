@@ -46,8 +46,19 @@ add_executable(keeper
 					CommandPattern_components/Command_create/command_create_itemtype.cpp
 					CommandPattern_components/Command_create/command_create_buff.cpp
 					CommandPattern_components/Command_create/command_create_bufftype.cpp
-
 					CommandPattern_components/Command_create/command_connect_rooms.cpp
+
+					CommandPattern_components/Command_delete/command_delete_level.cpp
+					CommandPattern_components/Command_delete/command_delete_room.cpp
+					CommandPattern_components/Command_delete/command_delete_roomtype.cpp
+					CommandPattern_components/Command_delete/command_delete_wall.cpp
+					CommandPattern_components/Command_delete/command_delete_npc.cpp
+					CommandPattern_components/Command_delete/command_delete_npctype.cpp
+					CommandPattern_components/Command_delete/command_delete_item.cpp
+					CommandPattern_components/Command_delete/command_delete_itemtype.cpp
+					CommandPattern_components/Command_delete/command_delete_buff.cpp
+					CommandPattern_components/Command_delete/command_delete_bufftype.cpp
+					CommandPattern_components/Command_delete/command_disconnect_rooms.cpp
 				)
 
 find_package(PostgreSQL REQUIRED)
