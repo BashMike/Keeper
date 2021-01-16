@@ -10,6 +10,10 @@ void view::View_console::print_title() {
 	std::cout << file_content("Keeper_title.txt");
 }
 
+void view::View_console::print_help() {
+	std::cout << file_content("help_commands.txt");
+}
+
 void view::View_console::output_message_str(const std::string& message_str) {
 	std::cout << message_str << std::endl;
 }

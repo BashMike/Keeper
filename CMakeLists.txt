@@ -14,6 +14,7 @@ add_executable(keeper
 					MVC_modules/model.cpp
 					MVC_modules/Model_modules/info_module.cpp
 					MVC_modules/Model_modules/transaction_module.cpp
+					MVC_modules/Model_modules/analytics_module.cpp
 
 					MVC_modules/view.cpp
 					MVC_modules/view_console.cpp
@@ -24,6 +25,7 @@ add_executable(keeper
 
 					CommandPattern_components/command.cpp
 					CommandPattern_components/command_quit.cpp
+					CommandPattern_components/command_help.cpp
 
 					CommandPattern_components/Command_show/command_show_levels.cpp
 					CommandPattern_components/Command_show/command_show_rooms.cpp
@@ -36,6 +38,9 @@ add_executable(keeper
 					CommandPattern_components/Command_show/command_show_buffs.cpp
 					CommandPattern_components/Command_show/command_show_bufftypes.cpp
 
+					CommandPattern_components/Command_show/command_show_level_map.cpp
+					CommandPattern_components/Command_show/command_show_room_objects.cpp
+
 					CommandPattern_components/Command_create/command_create_level.cpp
 					CommandPattern_components/Command_create/command_create_room.cpp
 					CommandPattern_components/Command_create/command_create_roomtype.cpp
@@ -47,6 +52,7 @@ add_executable(keeper
 					CommandPattern_components/Command_create/command_create_buff.cpp
 					CommandPattern_components/Command_create/command_create_bufftype.cpp
 					CommandPattern_components/Command_create/command_connect_rooms.cpp
+					CommandPattern_components/Command_create/command_add_bufftype_resist.cpp
 
 					CommandPattern_components/Command_delete/command_delete_level.cpp
 					CommandPattern_components/Command_delete/command_delete_room.cpp
@@ -59,6 +65,21 @@ add_executable(keeper
 					CommandPattern_components/Command_delete/command_delete_buff.cpp
 					CommandPattern_components/Command_delete/command_delete_bufftype.cpp
 					CommandPattern_components/Command_delete/command_disconnect_rooms.cpp
+					CommandPattern_components/Command_delete/command_remove_bufftype_resist.cpp
+
+					CommandPattern_components/Command_set/command_set_level.cpp
+					CommandPattern_components/Command_set/command_set_room.cpp
+					CommandPattern_components/Command_set/command_set_roomtype.cpp
+					CommandPattern_components/Command_set/command_set_wall.cpp
+					CommandPattern_components/Command_set/command_set_npc.cpp
+					CommandPattern_components/Command_set/command_set_npctype.cpp
+					CommandPattern_components/Command_set/command_set_item.cpp
+					CommandPattern_components/Command_set/command_set_itemtype.cpp
+					CommandPattern_components/Command_set/command_set_buff.cpp
+					CommandPattern_components/Command_set/command_set_bufftype.cpp
+
+					CommandPattern_components/Command_analytics/command_analytics_strongest_npc.cpp
+					CommandPattern_components/Command_analytics/command_analytics_strongest_item.cpp
 				)
 
 find_package(PostgreSQL REQUIRED)

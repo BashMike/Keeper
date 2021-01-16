@@ -1,0 +1,36 @@
+    Command documentation:
+    'quit'                              - quit from the program
+    'help'                              - show command documentation
+
+    'show' <...>                        - show information about entities of database
+                                        - instead of <...> type one word of the given list:
+                                           [ levels, rooms, roomtypes, walls, npcs,
+                                             npctypes, items, itemtypes, buffs, bufftypes ]
+
+    'create' <...>                      - create entity in database
+                                        - instead of <...> type one word of the given list:
+                                           [ level, room, roomtype, wall, npc,
+                                             npctype, item, itemtype, buff, bufftype ]
+
+    'connect rooms'                     - connect two rooms
+    'add buff resist'                   - add resist to given type of buffs for given npc
+
+    'delete' <...>                      - delete entity from database
+                                        - instead of <...> type one word of the given list:
+                                           [ level, room, roomtype, wall, npc,
+                                             npctype, item, itemtype, buff, bufftype ]
+
+    'disconnect rooms'                  - disconnect two rooms
+    'remove buff resist'                - remove resist to given type of buffs from given npc
+
+    'set' <...>                         - set parameter of entity in database
+                                        - instead of <...> type one word of the given list:
+                                           [ level, room, roomtype, wall, npc,
+                                             npctype, item, itemtype, buff, bufftype ]
+
+    'show level map'                    - show map of the given level
+    'show room objects'                 - show information about all game objects in the given room
+
+    'analytics room strongest item'     - show strongest item in the game
+    'analytics strongest item'          - show strongest item in the game
+

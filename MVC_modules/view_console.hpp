@@ -10,7 +10,8 @@ namespace view {
 		~View_console();
 
 		// ----------- contract ------------
-		virtual void print_title() override;
+		virtual void print_title() 	override;
+		virtual void print_help() 	override;
 
 		virtual void output_message_str(const std::string& message_str) 	override;	
 		virtual void output_message(const view::Message_code& message_code) override;

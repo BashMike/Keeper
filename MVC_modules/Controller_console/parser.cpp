@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "../../CommandPattern_components/command_quit.hpp"
+#include "../../CommandPattern_components/command_help.hpp"
 
 #include "../../CommandPattern_components/Command_show/command_show_levels.hpp"
 #include "../../CommandPattern_components/Command_show/command_show_rooms.hpp"
@@ -55,6 +56,9 @@
 #include "../../CommandPattern_components/Command_set/command_set_buff.hpp"
 #include "../../CommandPattern_components/Command_set/command_set_bufftype.hpp"
 
+#include "../../CommandPattern_components/Command_analytics/command_analytics_strongest_npc.hpp"
+#include "../../CommandPattern_components/Command_analytics/command_analytics_strongest_item.hpp"
+
 controller::Parser::Parser(Controller_console* controller_console, model::Model* model, view::View* view)
 	: 	_controller_console(controller_console),
 		_model(model),
@@ -83,6 +87,9 @@ commander::Command* controller::Parser::define_command_by_words(const std::vecto
 	if (command_words.size() == 1) {
 		if (command_words.at(0) == "quit") {
 			result = new commander::Command_quit((Controller*)this->_controller_console);
+		}
+		else if (command_words.at(0) == "help") {
+			result = new commander::Command_help(this->_view);
 		}
 	}
 	else if (command_words.size() == 2) {
@@ -153,6 +160,14 @@ commander::Command* controller::Parser::define_command_by_words(const std::vecto
 		}
 		else if (command_words.at(0) == "remove" && command_words.at(1) == "buff" && command_words.at(2) == "resist") {
 			result = new commander::Command_remove_bufftype_resist((Controller*)this->_controller_console, this->_model, this->_view);
+		}
+		else if (command_words.at(0) == "analytics" && command_words.at(1) == "strongest" && command_words.at(2) == "item") {
+			result = new commander::Command_analytics_strongest_item(this->_model, this->_view);
+		}
+	}
+	else if (command_words.size() == 4) {
+		if (command_words.at(0) == "analytics" && command_words.at(1) == "room" && command_words.at(2) == "strongest" && command_words.at(3) == "npc") {
+			result = new commander::Command_analytics_strongest_npc((Controller*)this->_controller_console, this->_model, this->_view);
 		}
 	}
 

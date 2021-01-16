@@ -1,9 +1,9 @@
 #pragma once
-#include "../database_connector.hpp" 
 
 #include <vector>
 #include <string>
 
+#include "../database_connector.hpp" 
 #include "../view_message_codes.hpp"
 
 namespace model {

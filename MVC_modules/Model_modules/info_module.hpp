@@ -1,8 +1,9 @@
 #pragma once
-#include "../database_connector.hpp" 
 
 #include <vector>
 #include <string>
+
+#include "../database_connector.hpp" 
 
 namespace model {
 	class Info_module {
