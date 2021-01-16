@@ -11,6 +11,7 @@ namespace view {
 
 		ERR_DB_CONNECTION,						// error in database connection
 		ERR_DB_INSERT,							// error in database insert command 
-		ERR_INVALID_ARGUMENT					// error in type of input argument for database's query
+		ERR_INVALID_ARGUMENT,					// error in type of input argument for database's query
+		ERR_UKNOWN_PARAMETER_TO_SET				// error in unknown parameter that is given by user to set
 	};
 }

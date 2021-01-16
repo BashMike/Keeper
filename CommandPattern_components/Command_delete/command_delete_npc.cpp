@@ -7,7 +7,7 @@ commander::Command_delete_npc::Command_delete_npc(controller::Controller* contro
 {}
 
 void commander::Command_delete_npc::execute() {
-	std::vector<std::string> npc_data = this->_controller->read_npc_define_data();
+	std::vector<std::string> npc_data = this->_controller->read_object_define_data();
 
 	if (!npc_data.empty()) {
 		std::string result_message = this->_model->transaction_module()->delete_npc(npc_data);

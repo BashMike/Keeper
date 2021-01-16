@@ -23,13 +23,14 @@ namespace model {
 		std::vector<std::vector<std::string>> get_rooms_info() const;
 		std::vector<std::vector<std::string>> get_roomtypes_info() const;
 		std::vector<std::vector<std::string>> get_walls_info() const;
-
 		std::vector<std::vector<std::string>> get_NPCs_info() const;
 		std::vector<std::vector<std::string>> get_npctypes_info() const;
 		std::vector<std::vector<std::string>> get_items_info() const;
 		std::vector<std::vector<std::string>> get_itemtypes_info() const;
-
 		std::vector<std::vector<std::string>> get_buffs_info() const;
 		std::vector<std::vector<std::string>> get_bufftypes_info() const;
+
+		std::vector<std::vector<std::string>> get_level_map(const std::vector<std::string>& level_info) const;
+		std::vector<std::vector<std::string>> get_room_objects(const std::vector<std::string>& room_info) const;
 	};
 }

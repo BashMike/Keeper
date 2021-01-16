@@ -121,6 +121,10 @@ std::string model::Transaction_module::create_bufftype(const std::vector<std::st
 	return this->_script_exec("insert into bufftype(name) values(\'" + data.at(0) + "\');");
 }
 
+std::string model::Transaction_module::add_bufftype_resist(const std::vector<std::string>& data) const {
+	return this->_script_exec("insert into npc_to_buff(npc_id, bufftype_id) values(" + data.at(0) + ", " + data.at(1) + ");");
+}
+
 std::string model::Transaction_module::delete_level(const std::vector<std::string>& data) const {
 	return this->_script_exec("delete from level where id = \'" + data.at(0) + "\';");
 }
@@ -175,4 +179,63 @@ std::string model::Transaction_module::delete_buff(const std::vector<std::string
 
 std::string model::Transaction_module::delete_bufftype(const std::vector<std::string>& data) const {
 	return this->_script_exec("delete from bufftype where id = " + data.at(0) + ";");
+}
+
+std::string model::Transaction_module::remove_bufftype_resist(const std::vector<std::string>& data) const {
+	return this->_script_exec("delete from npc_to_buff where npc_id = " + data.at(0) + " and bufftype_id = " + data.at(1) + ";");
+}
+
+std::string model::Transaction_module::set_level(const std::vector<std::string>& data) const {
+	return this->_script_exec("update level set " + data.at(1) + " = " + data.at(2) + " where id = " + data.at(0) + ";");
+}
+
+std::string model::Transaction_module::set_room(const std::vector<std::string>& data) const {
+	return this->_script_exec("update room set " + data.at(1) + " = " + data.at(2) + " where id = " + data.at(0) + ";");
+}
+
+std::string model::Transaction_module::set_roomtype(const std::vector<std::string>& data) const {
+	return this->_script_exec("update roomtype set " + data.at(1) + " = " + data.at(2) + " where id = " + data.at(0) + ";");
+}
+
+std::string model::Transaction_module::set_wall(const std::vector<std::string>& data) const {
+	if (data.at(1) == "x" || data.at(1) == "y" || data.at(1) == "room_id" || data.at(1) == "animation_filepath") {
+		return this->_script_exec("update gameobject set " + data.at(1) + " = " + data.at(2) + " where id = " + data.at(0) + ";");
+	}
+	else {
+		return this->_script_exec("update wall set " + data.at(1) + " = " + data.at(2) + " where gameobject_id = " + data.at(0) + ";");
+	}
+}
+
+std::string model::Transaction_module::set_npc(const std::vector<std::string>& data) const {
+	if (data.at(1) == "x" || data.at(1) == "y" || data.at(1) == "room_id" || data.at(1) == "animation_filepath") {
+		return this->_script_exec("update gameobject set " + data.at(1) + " = " + data.at(2) + " where id = " + data.at(0) + ";");
+	}
+	else {
+		return this->_script_exec("update npc set " + data.at(1) + " = " + data.at(2) + " where gameobject_id = " + data.at(0) + ";");
+	}
+}
+
+std::string model::Transaction_module::set_npctype(const std::vector<std::string>& data) const {
+	return this->_script_exec("update npctype set " + data.at(1) + " = " + data.at(2) + " where id = " + data.at(0) + ";");
+}
+
+std::string model::Transaction_module::set_item(const std::vector<std::string>& data) const {
+	if (data.at(1) == "x" || data.at(1) == "y" || data.at(1) == "room_id" || data.at(1) == "animation_filepath") {
+		return this->_script_exec("update gameobject set " + data.at(1) + " = " + data.at(2) + " where id = " + data.at(0) + ";");
+	}
+	else {
+		return this->_script_exec("update item set " + data.at(1) + " = " + data.at(2) + " where gameobject_id = " + data.at(0) + ";");
+	}
+}
+
+std::string model::Transaction_module::set_itemtype(const std::vector<std::string>& data) const {
+	return this->_script_exec("update itemtype set " + data.at(1) + " = " + data.at(2) + " where id = " + data.at(0) + ";");
+}
+
+std::string model::Transaction_module::set_buff(const std::vector<std::string>& data) const {
+	return this->_script_exec("update buff set " + data.at(1) + " = " + data.at(2) + " where id = " + data.at(0) + ";");
+}
+
+std::string model::Transaction_module::set_bufftype(const std::vector<std::string>& data) const {
+	return this->_script_exec("update bufftype set " + data.at(1) + " = " + data.at(2) + " where id = " + data.at(0) + ";");
 }

@@ -1,6 +1,7 @@
 #include "controller_console.hpp"
 
 #include <iostream>
+#include <map>
 
 #include "../additional.hpp"
 
@@ -327,132 +328,157 @@ std::vector<std::string> controller::Controller_console::read_rooms_data() const
 	return result;
 }
 
-std::vector<std::string> controller::Controller_console::read_level_define_data() const {
+std::vector<std::string> controller::Controller_console::read_bufftype_resist_data() const {
 	std::vector<std::string> result;
 
-	std::string level_id;
-	std::cout << "    type level\'s id: ";
-	std::getline(std::cin, level_id);
-	if (!is_integer(level_id)) { return std::vector<std::string>(); }
-
-	result.push_back(level_id);
-
-	return result;
-}
-
-std::vector<std::string> controller::Controller_console::read_room_define_data() const {
-	std::vector<std::string> result;
-
-	std::string room_id;
-	std::cout << "    type room\'s id: ";
-	std::getline(std::cin, room_id);
-	if (!is_integer(room_id)) { return std::vector<std::string>(); }
-
-	result.push_back(room_id);
-
-	return result;
-}
-
-std::vector<std::string> controller::Controller_console::read_roomtype_define_data() const {
-	std::vector<std::string> result;
-
-	std::string roomtype_id;
-	std::cout << "    type roomtype\'s id: ";
-	std::getline(std::cin, roomtype_id);
-	if (!is_integer(roomtype_id)) { return std::vector<std::string>(); }
-
-	result.push_back(roomtype_id);
-
-	return result;
-}
-
-std::vector<std::string> controller::Controller_console::read_wall_define_data() const {
-	std::vector<std::string> result;
-
-	std::string gameobject_id;
-	std::cout << "    type wall\'s id: ";
-	std::getline(std::cin, gameobject_id);
-	if (!is_integer(gameobject_id)) { return std::vector<std::string>(); }
-
-	result.push_back(gameobject_id);
-
-	return result;
-}
-
-std::vector<std::string> controller::Controller_console::read_npc_define_data() const {
-	std::vector<std::string> result;
-
-	std::string gameobject_id;
+	std::string npc_id;
 	std::cout << "    type npc\'s id: ";
-	std::getline(std::cin, gameobject_id);
-	if (!is_integer(gameobject_id)) { return std::vector<std::string>(); }
-
-	result.push_back(gameobject_id);
-
-	return result;
-}
-
-std::vector<std::string> controller::Controller_console::read_npctype_define_data() const {
-	std::vector<std::string> result;
-
-	std::string gameobject_id;
-	std::cout << "    type npc type\'s id: ";
-	std::getline(std::cin, gameobject_id);
-	if (!is_integer(gameobject_id)) { return std::vector<std::string>(); }
-
-	result.push_back(gameobject_id);
-
-	return result;
-}
-
-std::vector<std::string> controller::Controller_console::read_item_define_data() const {
-	std::vector<std::string> result;
-
-	std::string gameobject_id;
-	std::cout << "    type item\'s id: ";
-	std::getline(std::cin, gameobject_id);
-	if (!is_integer(gameobject_id)) { return std::vector<std::string>(); }
-
-	result.push_back(gameobject_id);
-
-	return result;
-}
-
-std::vector<std::string> controller::Controller_console::read_itemtype_define_data() const {
-	std::vector<std::string> result;
-
-	std::string gameobject_id;
-	std::cout << "    type item type\'s id: ";
-	std::getline(std::cin, gameobject_id);
-	if (!is_integer(gameobject_id)) { return std::vector<std::string>(); }
-
-	result.push_back(gameobject_id);
-
-	return result;
-}
-
-std::vector<std::string> controller::Controller_console::read_buff_define_data() const {
-	std::vector<std::string> result;
-
-	std::string buff_id;
-	std::cout << "    type buff\'s id: ";
-	std::getline(std::cin, buff_id);
-	if (!is_integer(buff_id)) { return std::vector<std::string>(); }
-
-	result.push_back(buff_id);
-
-	return result;
-}
-
-std::vector<std::string> controller::Controller_console::read_bufftype_define_data() const {
-	std::vector<std::string> result;
+	std::getline(std::cin, npc_id);
+	if (!is_integer(npc_id)) { return std::vector<std::string>(); }
 
 	std::string bufftype_id;
 	std::cout << "    type buff type\'s id: ";
 	std::getline(std::cin, bufftype_id);
 	if (!is_integer(bufftype_id)) { return std::vector<std::string>(); }
 
+	result.push_back(npc_id);
 	result.push_back(bufftype_id);
 
 	return result;
+}
+
+std::vector<std::string> controller::Controller_console::read_object_define_data() const {
+	std::vector<std::string> result;
+
+	std::string object_id;
+	std::cout << "    type id: ";
+	std::getline(std::cin, object_id);
+	if (!is_integer(object_id)) { return std::vector<std::string>(); }
+
+	result.push_back(object_id);
+
+	return result;
+}
+
+std::vector<std::string> controller::Controller_console::read_object_change_parameter_data(	const std::vector<std::string>& str_params_info,
+																							const std::vector<std::string>& int_params_info,
+																							const std::vector<std::string>& float_params_info) const
+{
+	std::vector<std::string> result;
+
+	std::string parameter_name;
+	std::cout << "    # Type \'help\' to see all changeable parameters" << std::endl;
+	std::cout << "    parameter\'s name: ";
+	std::getline(std::cin, parameter_name);
+	result.push_back(parameter_name);
+
+	if (parameter_name != "help") {
+		std::string parameter_data;
+		std::cout << "    parameter\'s data: ";
+		std::getline(std::cin, parameter_data);
+		result.push_back(parameter_data);
+
+		std::vector<std::string> object_info = this->read_object_define_data();
+		result.insert(result.begin(), object_info.begin(), object_info.end());
+
+		if (!object_info.empty()) {
+			bool is_proper_string_data 	= (std::find(str_params_info.begin(), str_params_info.end(), parameter_name) != str_params_info.end());
+			bool is_proper_integer_data = (std::find(int_params_info.begin(), int_params_info.end(), parameter_name) != int_params_info.end() 			&& is_integer(parameter_data));
+			bool is_proper_float_data 	= (std::find(float_params_info.begin(), float_params_info.end(), parameter_name) != float_params_info.end() 	&& is_float(parameter_data));
+
+			if (is_proper_string_data) {
+				result.at(2) = "\'" + result.at(2) + "\'";
+			}
+
+			if (!is_proper_string_data && !is_proper_integer_data && !is_proper_float_data) {
+				result.clear();
+			}
+		}
+		else {
+			result.clear();
+		}
+	}
+	else {
+		std::vector<std::string> params;
+
+		params.push_back("help");
+		params.insert(params.end(), str_params_info.begin(),	str_params_info.end());
+		params.insert(params.end(), int_params_info.begin(),	int_params_info.end());
+		params.insert(params.end(), float_params_info.begin(), 	float_params_info.end());
+
+		result = params;
+	}
+
+	return result;
+}
+
+std::vector<std::string> controller::Controller_console::read_level_change_parameter_data() const {
+	std::vector<std::string> str_param_info = {"name", "music_filepath"};
+	std::vector<std::string> int_param_info;
+
+	return this->read_object_change_parameter_data(str_param_info, int_param_info, std::vector<std::string>());
+}
+
+std::vector<std::string> controller::Controller_console::read_room_change_parameter_data() const {
+	std::vector<std::string> str_param_info;
+	std::vector<std::string> int_param_info = {"roomtype_id", "level_id"};
+
+	return this->read_object_change_parameter_data(str_param_info, int_param_info, std::vector<std::string>());
+}
+
+std::vector<std::string> controller::Controller_console::read_roomtype_change_parameter_data() const {
+	std::vector<std::string> str_param_info = {"name"};
+	std::vector<std::string> int_param_info;
+
+	return this->read_object_change_parameter_data(str_param_info, int_param_info, std::vector<std::string>());
+}
+
+std::vector<std::string> controller::Controller_console::read_wall_change_parameter_data() const {
+	std::vector<std::string> str_param_info = {"animation_filepath"};
+	std::vector<std::string> int_param_info = {"x", "y", "room_id", "damage"};
+
+	return this->read_object_change_parameter_data(str_param_info, int_param_info, std::vector<std::string>());
+}
+
+std::vector<std::string> controller::Controller_console::read_npc_change_parameter_data() const {
+	std::vector<std::string> str_param_info = {"animation_filepath", "name", "attacksound_filepath", "hurtsound_filepath"};
+	std::vector<std::string> int_param_info = {"x", "y", "room_id", "health", "speed", "damage", "npctype_id", "dropitem_id", "attackbuff_id", "ondeathbuff_id"};
+
+	return this->read_object_change_parameter_data(str_param_info, int_param_info, std::vector<std::string>());
+}
+
+std::vector<std::string> controller::Controller_console::read_npctype_change_parameter_data() const {
+	std::vector<std::string> str_param_info = {"name"};
+	std::vector<std::string> int_param_info;
+
+	return this->read_object_change_parameter_data(str_param_info, int_param_info, std::vector<std::string>());
+}
+
+std::vector<std::string> controller::Controller_console::read_item_change_parameter_data() const {
+	std::vector<std::string> str_param_info = {"animation_filepath", "name", "pickupsound_filepath"};
+	std::vector<std::string> int_param_info = {"x", "y", "room_id", "itemtype_id", "damage"};
+
+	return this->read_object_change_parameter_data(str_param_info, int_param_info, std::vector<std::string>());
+}
+
+std::vector<std::string> controller::Controller_console::read_itemtype_change_parameter_data() const {
+	std::vector<std::string> str_param_info = {"name"};
+	std::vector<std::string> int_param_info;
+
+	return this->read_object_change_parameter_data(str_param_info, int_param_info, std::vector<std::string>());
+}
+
+std::vector<std::string> controller::Controller_console::read_buff_change_parameter_data() const {
+	std::vector<std::string> str_param_info;
+	std::vector<std::string> int_param_info = {"bufftype_id"};
+	std::vector<std::string> float_param_info = {"effecttime"};
+
+	return this->read_object_change_parameter_data(str_param_info, int_param_info, float_param_info);
+}
+
+std::vector<std::string> controller::Controller_console::read_bufftype_change_parameter_data() const {
+	std::vector<std::string> str_param_info = {"name"};
+	std::vector<std::string> int_param_info;
+
+	return this->read_object_change_parameter_data(str_param_info, int_param_info, std::vector<std::string>());
 }

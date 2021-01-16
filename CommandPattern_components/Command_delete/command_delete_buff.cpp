@@ -8,7 +8,7 @@ commander::Command_delete_buff::Command_delete_buff(controller::Controller* cont
 {}
 
 void commander::Command_delete_buff::execute() {
-	std::vector<std::string> buff_data = this->_controller->read_buff_define_data();
+	std::vector<std::string> buff_data = this->_controller->read_object_define_data();
 
 	if (!buff_data.empty()) {
 		std::string result_message = this->_model->transaction_module()->delete_buff(buff_data);

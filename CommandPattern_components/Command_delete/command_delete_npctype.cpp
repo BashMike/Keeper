@@ -7,7 +7,7 @@ commander::Command_delete_npctype::Command_delete_npctype(controller::Controller
 {}
 
 void commander::Command_delete_npctype::execute() {
-	std::vector<std::string> npctype_data = this->_controller->read_npctype_define_data();
+	std::vector<std::string> npctype_data = this->_controller->read_object_define_data();
 
 	if (!npctype_data.empty()) {
 		std::string result_message = this->_model->transaction_module()->delete_npctype(npctype_data);

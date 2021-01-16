@@ -15,6 +15,9 @@
 #include "../../CommandPattern_components/Command_show/command_show_buffs.hpp"
 #include "../../CommandPattern_components/Command_show/command_show_bufftypes.hpp"
 
+#include "../../CommandPattern_components/Command_show/command_show_level_map.hpp"
+#include "../../CommandPattern_components/Command_show/command_show_room_objects.hpp"
+
 #include "../../CommandPattern_components/Command_create/command_create_level.hpp"
 #include "../../CommandPattern_components/Command_create/command_create_room.hpp"
 #include "../../CommandPattern_components/Command_create/command_create_roomtype.hpp"
@@ -26,6 +29,7 @@
 #include "../../CommandPattern_components/Command_create/command_create_buff.hpp"
 #include "../../CommandPattern_components/Command_create/command_create_bufftype.hpp"
 #include "../../CommandPattern_components/Command_create/command_connect_rooms.hpp"
+#include "../../CommandPattern_components/Command_create/command_add_bufftype_resist.hpp"
 
 #include "../../CommandPattern_components/Command_delete/command_delete_level.hpp"
 #include "../../CommandPattern_components/Command_delete/command_delete_room.hpp"
@@ -38,6 +42,18 @@
 #include "../../CommandPattern_components/Command_delete/command_delete_buff.hpp"
 #include "../../CommandPattern_components/Command_delete/command_delete_bufftype.hpp"
 #include "../../CommandPattern_components/Command_delete/command_disconnect_rooms.hpp"
+#include "../../CommandPattern_components/Command_delete/command_remove_bufftype_resist.hpp"
+
+#include "../../CommandPattern_components/Command_set/command_set_level.hpp"
+#include "../../CommandPattern_components/Command_set/command_set_room.hpp"
+#include "../../CommandPattern_components/Command_set/command_set_roomtype.hpp"
+#include "../../CommandPattern_components/Command_set/command_set_wall.hpp"
+#include "../../CommandPattern_components/Command_set/command_set_npc.hpp"
+#include "../../CommandPattern_components/Command_set/command_set_npctype.hpp"
+#include "../../CommandPattern_components/Command_set/command_set_item.hpp"
+#include "../../CommandPattern_components/Command_set/command_set_itemtype.hpp"
+#include "../../CommandPattern_components/Command_set/command_set_buff.hpp"
+#include "../../CommandPattern_components/Command_set/command_set_bufftype.hpp"
 
 controller::Parser::Parser(Controller_console* controller_console, model::Model* model, view::View* view)
 	: 	_controller_console(controller_console),
@@ -106,11 +122,37 @@ commander::Command* controller::Parser::define_command_by_words(const std::vecto
 			else if (command_words.at(1) == "buff") 		{ result = new commander::Command_delete_buff((Controller*)this->_controller_console, this->_model, this->_view); }
 			else if (command_words.at(1) == "bufftype") 	{ result = new commander::Command_delete_bufftype((Controller*)this->_controller_console, this->_model, this->_view); }
 		}
+		else if (command_words.at(0) == "set") {
+			if (command_words.at(1) == "level") 			{ result = new commander::Command_set_level((Controller*)this->_controller_console, this->_model, this->_view); }
+			else if (command_words.at(1) == "room") 		{ result = new commander::Command_set_room((Controller*)this->_controller_console, this->_model, this->_view); }
+			else if (command_words.at(1) == "roomtype") 	{ result = new commander::Command_set_roomtype((Controller*)this->_controller_console, this->_model, this->_view); }
+			else if (command_words.at(1) == "wall") 		{ result = new commander::Command_set_wall((Controller*)this->_controller_console, this->_model, this->_view); }
+			else if (command_words.at(1) == "npc") 			{ result = new commander::Command_set_npc((Controller*)this->_controller_console, this->_model, this->_view); }
+			else if (command_words.at(1) == "npctype") 		{ result = new commander::Command_set_npctype((Controller*)this->_controller_console, this->_model, this->_view); }
+			else if (command_words.at(1) == "item") 		{ result = new commander::Command_set_item((Controller*)this->_controller_console, this->_model, this->_view); }
+			else if (command_words.at(1) == "itemtype") 	{ result = new commander::Command_set_itemtype((Controller*)this->_controller_console, this->_model, this->_view); }
+			else if (command_words.at(1) == "buff") 		{ result = new commander::Command_set_buff((Controller*)this->_controller_console, this->_model, this->_view); }
+			else if (command_words.at(1) == "bufftype") 	{ result = new commander::Command_set_bufftype((Controller*)this->_controller_console, this->_model, this->_view); }
+		}
 		else if (command_words.at(0) == "connect" && command_words.at(1) == "rooms") {
 			result = new commander::Command_connect_rooms((Controller*)this->_controller_console, this->_model, this->_view);
 		}
 		else if (command_words.at(0) == "disconnect" && command_words.at(1) == "rooms") {
 			result = new commander::Command_disconnect_rooms((Controller*)this->_controller_console, this->_model, this->_view);
+		}
+	}
+	else if (command_words.size() == 3) {
+		if (command_words.at(0) == "show" && command_words.at(1) == "level" && command_words.at(2) == "map") {
+			result = new commander::Command_show_level_map((Controller*)this->_controller_console, this->_model, this->_view);
+		}
+		else if (command_words.at(0) == "show" && command_words.at(1) == "room" && command_words.at(2) == "objects") {
+			result = new commander::Command_show_room_objects((Controller*)this->_controller_console, this->_model, this->_view);
+		}
+		else if (command_words.at(0) == "add" && command_words.at(1) == "buff" && command_words.at(2) == "resist") {
+			result = new commander::Command_add_bufftype_resist((Controller*)this->_controller_console, this->_model, this->_view);
+		}
+		else if (command_words.at(0) == "remove" && command_words.at(1) == "buff" && command_words.at(2) == "resist") {
+			result = new commander::Command_remove_bufftype_resist((Controller*)this->_controller_console, this->_model, this->_view);
 		}
 	}
 

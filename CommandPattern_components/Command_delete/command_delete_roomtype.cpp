@@ -7,7 +7,7 @@ commander::Command_delete_roomtype::Command_delete_roomtype(controller::Controll
 {}
 
 void commander::Command_delete_roomtype::execute() {
-	std::vector<std::string> roomtype_data = this->_controller->read_roomtype_define_data();
+	std::vector<std::string> roomtype_data = this->_controller->read_object_define_data();
 
 	if (!roomtype_data.empty()) {
 		std::string result_message = this->_model->transaction_module()->delete_roomtype(roomtype_data);

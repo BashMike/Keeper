@@ -7,7 +7,7 @@ commander::Command_delete_wall::Command_delete_wall(controller::Controller* cont
 {}
 
 void commander::Command_delete_wall::execute() {
-	std::vector<std::string> wall_data = this->_controller->read_wall_define_data();
+	std::vector<std::string> wall_data = this->_controller->read_object_define_data();
 
 	if (!wall_data.empty()) {
 		std::string result_message = this->_model->transaction_module()->delete_wall(wall_data);

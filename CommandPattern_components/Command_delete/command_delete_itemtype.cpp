@@ -7,7 +7,7 @@ commander::Command_delete_itemtype::Command_delete_itemtype(controller::Controll
 {}
 
 void commander::Command_delete_itemtype::execute() {
-	std::vector<std::string> itemtype_data = this->_controller->read_itemtype_define_data();
+	std::vector<std::string> itemtype_data = this->_controller->read_object_define_data();
 
 	if (!itemtype_data.empty()) {
 		std::string result_message = this->_model->transaction_module()->delete_itemtype(itemtype_data);

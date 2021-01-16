@@ -32,6 +32,7 @@ namespace model {
 		std::string create_itemtype(const std::vector<std::string>& data) const;
 		std::string create_buff(const std::vector<std::string>& data) const;
 		std::string create_bufftype(const std::vector<std::string>& data) const;
+		std::string add_bufftype_resist(const std::vector<std::string>& data) const;
 
 		std::string delete_level(const std::vector<std::string>& data) const;
 		std::string delete_room(const std::vector<std::string>& data) const;
@@ -44,5 +45,18 @@ namespace model {
 		std::string delete_itemtype(const std::vector<std::string>& data) const;
 		std::string delete_buff(const std::vector<std::string>& data) const;
 		std::string delete_bufftype(const std::vector<std::string>& data) const;
+		std::string remove_bufftype_resist(const std::vector<std::string>& data) const;
+
+		std::string set_level(const std::vector<std::string>& data) const;
+		std::string set_room(const std::vector<std::string>& data) const;
+		std::string set_rooms_connection(const std::vector<std::string>& data) const;
+		std::string set_roomtype(const std::vector<std::string>& data) const;
+		std::string set_wall(const std::vector<std::string>& data) const;
+		std::string set_npc(const std::vector<std::string>& data) const;
+		std::string set_npctype(const std::vector<std::string>& data) const;
+		std::string set_item(const std::vector<std::string>& data) const;
+		std::string set_itemtype(const std::vector<std::string>& data) const;
+		std::string set_buff(const std::vector<std::string>& data) const;
+		std::string set_bufftype(const std::vector<std::string>& data) const;
 	};
 }

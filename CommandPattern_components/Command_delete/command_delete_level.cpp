@@ -7,7 +7,7 @@ commander::Command_delete_level::Command_delete_level(controller::Controller* co
 {}
 
 void commander::Command_delete_level::execute() {
-	std::vector<std::string> level_data = this->_controller->read_level_define_data();
+	std::vector<std::string> level_data = this->_controller->read_object_define_data();
 
 	if (!level_data.empty()) {
 		std::string result_message = this->_model->transaction_module()->delete_level(level_data);

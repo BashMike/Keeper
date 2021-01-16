@@ -7,7 +7,7 @@ commander::Command_delete_item::Command_delete_item(controller::Controller* cont
 {}
 
 void commander::Command_delete_item::execute() {
-	std::vector<std::string> item_data = this->_controller->read_item_define_data();
+	std::vector<std::string> item_data = this->_controller->read_object_define_data();
 
 	if (!item_data.empty()) {
 		std::string result_message = this->_model->transaction_module()->delete_item(item_data);
